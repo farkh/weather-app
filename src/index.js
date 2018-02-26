@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
@@ -21,19 +21,19 @@ firebaseApp.auth().onAuthStateChanged(user => {
 		const { email } = user;
 		store.dispatch(logUser(email));
 		bake_cookie('email', email);
-		browserHistory.push(process.env.PUBLIC_URL + '/app');
+		hashHistory.push('/app');
 	} else {
-		browserHistory.replace(process.env.PUBLIC_URL + '/signin');
+		hashHistory.replace('/signin');
 		bake_cookie('email', '');
 	}
 });
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router path={process.env.PUBLIC_URL + '/'} history={browserHistory}>
-			<Route path={process.env.PUBLIC_URL + '/app'} component={App} />
-			<Route path={process.env.PUBLIC_URL + '/signin'} component={SignIn} />
-			<Route path={process.env.PUBLIC_URL + '/signup'} component={SignUp} />
+		<Router path={'/'} history={hashHistory}>
+			<Route path='/app' component={App} />
+			<Route path='/signin' component={SignIn} />
+			<Route path='/signup' component={SignUp} />
 		</Router>
 	</Provider>,
 	document.getElementById('root')
