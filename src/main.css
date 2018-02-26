@@ -1,0 +1,30 @@
+body {
+	padding: 1em;
+}
+
+.app__header {
+	display: flex;
+	align-items: center;
+}
+
+.app__user-data {
+	margin-left: auto;
+}
+
+.app__user-data-email {
+	margin-right: 5px;
+}
+
+.add__input {
+	margin-right: 5px;
+}
+
+.locations {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.locations__card {
+	margin: 1em !important;
+}
