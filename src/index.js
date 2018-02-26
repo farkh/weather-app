@@ -21,19 +21,19 @@ firebaseApp.auth().onAuthStateChanged(user => {
 		const { email } = user;
 		store.dispatch(logUser(email));
 		bake_cookie('email', email);
-		browserHistory.push('/app');
+		browserHistory.push(process.env.PUBLIC_URL + '/app');
 	} else {
-		browserHistory.replace('/signin');
+		browserHistory.replace(process.env.PUBLIC_URL + '/signin');
 		bake_cookie('email', '');
 	}
 });
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router path="/" history={browserHistory}>
-			<Route path="/app" component={App} />
-			<Route path="/signin" component={SignIn} />
-			<Route path="/signup" component={SignUp} />
+		<Router path={process.env.PUBLIC_URL + '/'} history={browserHistory}>
+			<Route path={process.env.PUBLIC_URL + '/app'} component={App} />
+			<Route path={process.env.PUBLIC_URL + '/signin'} component={SignIn} />
+			<Route path={process.env.PUBLIC_URL + '/signup'} component={SignUp} />
 		</Router>
 	</Provider>,
 	document.getElementById('root')

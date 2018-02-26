@@ -44,7 +44,7 @@ class LocationItem extends Component {
 		let clientID 	 = '863ef19ba22c8d386868ce5501786b9982a09e29bce41d3de2b2df4b946b8f01',
 				apiBaseUrl = 'https://api.unsplash.com/search/photos',
 				queryUrl 	 = '';
-				
+
 		queryUrl = apiBaseUrl + '?query=' + this.props.location.locationName + '&client_id=' + clientID;
 
 		$.getJSON(queryUrl).done(json => {

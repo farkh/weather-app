@@ -80,7 +80,7 @@ class SignUp extends Component {
 								''
 						}
 						<Message>
-							Already a user? <Link to={'/signin'}>Sign In</Link>
+							Already a user? <Link to={process.env.PUBLIC_URL + '/signin'}>Sign In</Link>
 						</Message>
 					</Grid.Column>
 				</Grid>
